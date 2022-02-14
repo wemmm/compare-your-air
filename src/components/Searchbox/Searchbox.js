@@ -8,9 +8,13 @@ const Searchbox = ({ placeholder, options, onSuggestionClick }) => {
 
     if (query) {
       setSuggestions(
-        options.filter((option) =>
-          option.toLowerCase().includes(query.toLowerCase())
-        )
+        options
+          .filter(
+            (option) =>
+              option.toLowerCase().includes(query.toLowerCase()) &&
+              option[0].toLowerCase() === query[0].toLowerCase()
+          )
+          .slice(0, 5)
       );
     } else {
       setSuggestions([]);
