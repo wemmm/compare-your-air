@@ -1,8 +1,22 @@
 import "./App.css";
 import Card from "./components/Card";
 import Searchbox from "./components/Searchbox/Searchbox";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    if (!sessionStorage.getItem("cities")) {
+      fetch("https://api.openaq.org/v2/cities?country=GB&limit=200")
+        .then((response) => response.json())
+        .then((data) => {
+          sessionStorage.setItem(
+            "cities",
+            JSON.stringify(data.results.map((result) => (result = result.city)))
+          );
+        });
+    }
+  }, []);
+
   return (
     <div className="App">
       <div className="headers">
@@ -14,18 +28,17 @@ const App = () => {
         </h2>
       </div>
 
-      <div>
-        <Searchbox
-          placeholder="Enter city name..."
-          options={[
-            "Manchester",
-            "Liverpool",
-            "London",
-            "Canterbury",
-            "Birmingham",
-          ]}
-        />
-      </div>
+      {sessionStorage.getItem("cities") ? (
+        <div>
+          <Searchbox
+            placeholder="Enter city name..."
+            options={JSON.parse(sessionStorage.getItem("cities"))}
+          />
+        </div>
+      ) : (
+        "LOADING"
+      )}
+
       <br />
 
       <div className="card-row">
