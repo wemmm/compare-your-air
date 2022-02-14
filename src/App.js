@@ -1,10 +1,11 @@
 import "./App.css";
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
 import Searchbox from "./components/Searchbox/Searchbox";
 import { useEffect, useState } from "react";
 
 const App = () => {
   const [selectedCities, setSelectedCities] = useState([]);
+  // TODO: add loading state
 
   useEffect(() => {
     if (!sessionStorage.getItem("cities")) {
@@ -22,7 +23,7 @@ const App = () => {
   const fetchAirQuality = (city) => {
     fetch(`https://api.openaq.org/v1/latest?city=${city}`)
       .then((response) => response.json())
-      .then((data) => setSelectedCities([data, ...selectedCities]));
+      .then((data) => setSelectedCities([data.results[0], ...selectedCities]));
   };
 
   return (
@@ -51,8 +52,8 @@ const App = () => {
       <br />
 
       <div className="card-row">
-        {selectedCities.map((city) => (
-          <Card city={city} />
+        {selectedCities.map((city, i) => (
+          <Card cityData={city} key={i} />
         ))}
       </div>
     </div>
