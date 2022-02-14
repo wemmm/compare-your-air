@@ -36,7 +36,7 @@ const Searchbox = ({ placeholder, options, onSuggestionClick }) => {
             <li
               key={i}
               className="searchbox-suggestion"
-              onClick={onSuggestionClick}
+              onClick={() => onSuggestionClick(suggestion)}
             >
               {suggestion}
             </li>

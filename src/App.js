@@ -1,9 +1,11 @@
 import "./App.css";
 import Card from "./components/Card";
 import Searchbox from "./components/Searchbox/Searchbox";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [selectedCities, setSelectedCities] = useState([]);
+
   useEffect(() => {
     if (!sessionStorage.getItem("cities")) {
       fetch("https://api.openaq.org/v2/cities?country=GB&limit=200")
@@ -16,6 +18,12 @@ const App = () => {
         });
     }
   }, []);
+
+  const fetchAirQuality = (city) => {
+    fetch(`https://api.openaq.org/v1/latest?city=${city}`)
+      .then((response) => response.json())
+      .then((data) => setSelectedCities([data, ...selectedCities]));
+  };
 
   return (
     <div className="App">
@@ -33,6 +41,7 @@ const App = () => {
           <Searchbox
             placeholder="Enter city name..."
             options={JSON.parse(sessionStorage.getItem("cities"))}
+            onSuggestionClick={fetchAirQuality}
           />
         </div>
       ) : (
@@ -42,8 +51,9 @@ const App = () => {
       <br />
 
       <div className="card-row">
-        <Card />
-        <Card />
+        {selectedCities.map((city) => (
+          <Card city={city} />
+        ))}
       </div>
     </div>
   );
