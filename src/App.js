@@ -1,6 +1,6 @@
 import "./App.css";
 import Card from "./components/Card";
-import Searchbox from "./components/Searchbox";
+import Searchbox from "./components/Searchbox/Searchbox";
 
 const App = () => {
   return (
@@ -15,7 +15,16 @@ const App = () => {
       </div>
 
       <div>
-        <Searchbox />
+        <Searchbox
+          placeholder="Enter city name..."
+          options={[
+            "Manchester",
+            "Liverpool",
+            "London",
+            "Canterbury",
+            "Birmingham",
+          ]}
+        />
       </div>
       <br />
 
