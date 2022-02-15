@@ -23,10 +23,19 @@ const App = () => {
     }
   }, []);
 
-  const fetchAirQuality = (city) => {
-    fetch(`https://api.openaq.org/v1/latest?city=${encodeURIComponent(city)}`)
-      .then((response) => response.json())
-      .then((data) => setSelectedCities([...selectedCities, data.results[0]]));
+  const fetchAirQuality = (cityName) => {
+    if (
+      selectedCities.length < 2 &&
+      !selectedCities.some((selectedCity) => selectedCity.city === cityName)
+    ) {
+      fetch(
+        `https://api.openaq.org/v1/latest?city=${encodeURIComponent(cityName)}`
+      )
+        .then((response) => response.json())
+        .then((data) =>
+          setSelectedCities([...selectedCities, data.results[0]])
+        );
+    }
   };
 
   const removeSelectedCity = (cityToRemove) => {
@@ -48,7 +57,9 @@ const App = () => {
         </h2>
       </div>
 
-      {sessionStorage.getItem("cities") ? (
+      {loading ? (
+        <SpinnerIcon className="loading-spinner" />
+      ) : (
         <div>
           <Searchbox
             placeholder="Enter city name..."
@@ -56,8 +67,6 @@ const App = () => {
             onSuggestionClick={fetchAirQuality}
           />
         </div>
-      ) : (
-        <SpinnerIcon className="loading-spinner" />
       )}
       <br />
 
