@@ -2,13 +2,15 @@ import "./App.css";
 import Card from "./components/Card/Card";
 import Searchbox from "./components/Searchbox/Searchbox";
 import { useEffect, useState } from "react";
+import { ReactComponent as SpinnerIcon } from "./svg/spinner.svg";
 
 const App = () => {
   const [selectedCities, setSelectedCities] = useState([]);
-  // TODO: add loading state
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!sessionStorage.getItem("cities")) {
+      setLoading(true);
       fetch("https://api.openaq.org/v2/cities?country=GB&limit=200")
         .then((response) => response.json())
         .then((data) => {
@@ -16,14 +18,15 @@ const App = () => {
             "cities",
             JSON.stringify(data.results.map((result) => (result = result.city)))
           );
-        });
+        })
+        .then(() => setLoading(false));
     }
   }, []);
 
   const fetchAirQuality = (city) => {
-    fetch(`https://api.openaq.org/v1/latest?city=${city}`)
+    fetch(`https://api.openaq.org/v1/latest?city=${encodeURIComponent(city)}`)
       .then((response) => response.json())
-      .then((data) => setSelectedCities([data.results[0], ...selectedCities]));
+      .then((data) => setSelectedCities([...selectedCities, data.results[0]]));
   };
 
   const removeSelectedCity = (cityToRemove) => {
@@ -54,9 +57,8 @@ const App = () => {
           />
         </div>
       ) : (
-        "LOADING"
+        <SpinnerIcon className="loading-spinner" />
       )}
-
       <br />
 
       <div className="card-row">

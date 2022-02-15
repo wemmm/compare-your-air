@@ -5,8 +5,8 @@ import { ReactComponent as CloseIcon } from "../../svg/close.svg";
 const Card = ({ cityData, onClose }) => {
   return (
     <div className="card">
-      <div className="card--close-button" onClick={onClose}>
-        <CloseIcon />
+      <div className="card--close-button">
+        <CloseIcon onClick={onClose} />
       </div>
       <p className="card--updated-time">
         UPDATED{" "}
@@ -15,8 +15,8 @@ const Card = ({ cityData, onClose }) => {
         ).toUpperCase()}{" "}
         AGO
       </p>
-      <h3>{cityData.city}</h3>
-      <p className="card--location">in {cityData.location}, United Kingdom</p>
+      <h3>{cityData.location}</h3>
+      <p className="card--city">in {cityData.city}, United Kingdom</p>
       <b>
         Values:{" "}
         {cityData.measurements

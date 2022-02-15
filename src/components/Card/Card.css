@@ -17,10 +17,11 @@
 
 .card--close-button {
   display: flex;
-  justify-content: end;
   position: relative;
   left: 20px;
   top: 10px;
+  justify-content: end;
+  -webkit-justify-content: flex-end;
 }
 
 .card--close-button svg {
@@ -33,6 +34,6 @@
   line-height: 0.2;
 }
 
-.card--location {
+.card--city {
   line-height: 0.4;
 }
