@@ -1,3 +1,4 @@
+import "./Searchbox.css";
 import { useState } from "react";
 
 const Searchbox = ({ placeholder, options, onSuggestionClick }) => {
@@ -31,11 +32,11 @@ const Searchbox = ({ placeholder, options, onSuggestionClick }) => {
       />
 
       {suggestions.length > 0 ? (
-        <ul className="searchbox-suggestion-list">
+        <ul className="searchbox--suggestion-list">
           {suggestions.map((suggestion, i) => (
             <li
               key={i}
-              className="searchbox-suggestion"
+              className="searchbox--suggestion"
               onClick={() => onSuggestionClick(suggestion)}
             >
               {suggestion}

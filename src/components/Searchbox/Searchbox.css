@@ -1,0 +1,36 @@
+.searchbox {
+  border-color: #cccccc;
+  border-style: solid;
+  border-radius: 8px;
+  border-width: 2px;
+  box-sizing: border-box;
+  padding: 9px;
+  font-size: 15px;
+  width: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.searchbox--suggestion-list {
+  background-color: white;
+  list-style: none;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  text-align: left;
+  position: relative;
+  bottom: 22px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.searchbox--suggestion {
+  padding: 10px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+}
+
+.searchbox--suggestion:hover {
+  background-color: #f2f2f2;
+}
