@@ -4,17 +4,24 @@
   border-radius: 8px;
   border-width: 2px;
   box-sizing: border-box;
+  background: url("../../svg/search.svg") no-repeat scroll 7px 7px, white;
   padding: 9px;
+  padding-left: 40px;
   font-size: 15px;
   width: 400px;
   position: relative;
   z-index: 1;
 }
 
+.searchbox::placeholder {
+  color: black;
+}
+
 .searchbox--suggestion-list {
   background-color: white;
   list-style: none;
   width: 400px;
+  max-height: 210px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 0;
@@ -23,6 +30,7 @@
   bottom: 22px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  overflow: scroll;
 }
 
 .searchbox--suggestion {
@@ -31,6 +39,11 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.searchbox--suggestion:first-of-type {
+  padding-top: 15px;
+}
+
 .searchbox--suggestion:hover {
   background-color: #f2f2f2;
+  overflow: hidden;
 }
