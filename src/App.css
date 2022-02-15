@@ -32,6 +32,13 @@ h2 {
 
 h3 {
   color: rgba(122, 54, 177, 1);
+  font-size: 24px;
+  /* font-weight: 700; */
+  line-height: 0.3;
+}
+
+b {
+  font-weight: 600;
 }
 
 .headers {
@@ -43,9 +50,10 @@ h3 {
   border-style: solid;
   border-radius: 8px;
   border-width: 2px;
+  box-sizing: border-box;
   padding: 9px;
   font-size: 15px;
-  width: 300px;
+  width: 400px;
   position: relative;
   z-index: 1;
 }
@@ -53,13 +61,13 @@ h3 {
 .searchbox-suggestion-list {
   background-color: white;
   list-style: none;
-  width: 320px;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 0;
   text-align: left;
   position: relative;
-  bottom: 20px;
+  bottom: 22px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -72,21 +80,4 @@ h3 {
 
 .searchbox-suggestion:hover {
   background-color: #f2f2f2;
-}
-
-.card {
-  background-color: white;
-  width: 300px;
-  height: 200px;
-  border-radius: 8px;
-  margin-top: 20px;
-  text-align: left;
-  padding: 10px;
-}
-
-.card-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
 }

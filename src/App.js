@@ -26,6 +26,14 @@ const App = () => {
       .then((data) => setSelectedCities([data.results[0], ...selectedCities]));
   };
 
+  const removeSelectedCity = (cityToRemove) => {
+    setSelectedCities(
+      selectedCities.filter(
+        (selectedCity) => selectedCity.city !== cityToRemove.city
+      )
+    );
+  };
+
   return (
     <div className="App">
       <div className="headers">
@@ -53,7 +61,11 @@ const App = () => {
 
       <div className="card-row">
         {selectedCities.map((city, i) => (
-          <Card cityData={city} key={i} />
+          <Card
+            cityData={city}
+            onClose={() => removeSelectedCity(city)}
+            key={i}
+          />
         ))}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Card from "./Card";
 
 const mockCityData = {
@@ -13,11 +13,12 @@ const mockCityData = {
   ],
 };
 
-test("renders", () => {
+test("renders data passed in as prop", () => {
   render(<Card cityData={mockCityData} />);
 
   expect(screen.getByText("Manchester")).toBeInTheDocument();
   expect(
-    screen.getByText("In Salford Eccles, United Kingdom")
+    screen.getByText("in Salford Eccles, United Kingdom")
   ).toBeInTheDocument();
+  expect(screen.getByText("PM10")).toBeInTheDocument();
 });
