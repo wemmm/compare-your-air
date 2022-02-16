@@ -1,75 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
-
 .app {
   text-align: center;
 }
 
-html {
-  background: #6f36b1;
-  background: linear-gradient(90deg, #7836af 0%, #4475af 100%);
+.app--card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  margin: 50px 0;
 }
 
-body {
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1 {
-  font-size: 45px;
-  font-weight: 600;
-  color: white;
-}
-
-h2 {
-  font-weight: 400;
-  color: white;
-  margin: 8px;
-}
-
-h3 {
-  color: rgba(122, 54, 177, 1);
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-}
-
-b {
-  font-weight: 600;
-}
-
-.headers {
+.app--headers {
   margin: 100px 0 45px 0;
-}
-
-.loading-spinner {
-  animation-name: spin;
-  animation-duration: 2000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-animation-name: spin;
-  -webkit-animation-duration: 2000ms;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-}
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @media (max-width: 810px) {
@@ -77,21 +19,12 @@ b {
     padding: 0 20px;
   }
 
-  html {
-    background: #6948b0;
-    background: linear-gradient(to bottom right, #6948b0 0%, #4475af 100%);
-    background-attachment: fixed;
+  .app--card-row {
+    gap: 10px;
+    margin-top: 0;
   }
 
-  h1 {
-    font-size: 28px;
-  }
-
-  h2 {
-    font-size: 17px;
-  }
-
-  .headers {
+  .app--headers {
     margin: 50px 0 45px 0;
   }
 }

@@ -1,33 +1,32 @@
 .card {
   background-color: white;
-  box-sizing: border-box;
-  width: 400px;
   border-radius: 8px;
+  box-sizing: border-box;
   margin-top: 10px;
-  text-align: left;
   padding: 0 30px 30px;
+  text-align: left;
+  width: 400px;
 }
 
-.card--row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+.card--city {
+  margin: 8px 0;
 }
 
 .card--close-button {
   display: flex;
-  position: relative;
-  left: 20px;
-  top: 10px;
   justify-content: flex-end;
+  left: 20px;
+  position: relative;
+  top: 10px;
   -webkit-justify-content: flex-end;
 }
 
 .card--close-button svg {
   cursor: pointer;
+}
+
+.card--close-button svg:hover path {
+  fill: #4475af;
 }
 
 .card--updated-time {
@@ -36,16 +35,7 @@
   line-height: 0.2;
 }
 
-.card--city {
-  margin: 8px 0;
-}
-
 @media (max-width: 810px) {
-  .card--row {
-    margin-top: 0;
-    gap: 10px;
-  }
-
   .card:first-of-type {
     margin-top: 20px;
   }

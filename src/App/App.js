@@ -1,6 +1,7 @@
 import "./App.css";
 import Card from "../components/Card/Card";
 import Searchbox from "../components/Searchbox/Searchbox";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import { useEffect, useState } from "react";
 import { ReactComponent as SpinnerIcon } from "../svg/spinner.svg";
 
@@ -50,14 +51,14 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="headers">
+      <div className="app--headers">
         <h1>Compare your Air</h1>
         <h2>Compare the air quality between cities in the UK.</h2>
         <h2>Select cities to compare using the search tool below.</h2>
       </div>
 
       {loading ? (
-        <SpinnerIcon className="loading-spinner" />
+        <LoadingSpinner />
       ) : (
         <div>
           <Searchbox
@@ -68,7 +69,7 @@ const App = () => {
         </div>
       )}
 
-      <div className="card--row">
+      <div className="app--card-row">
         {selectedCities.map((city, i) => (
           <Card
             cityData={city}
