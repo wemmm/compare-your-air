@@ -13,6 +13,8 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .card--close-button {
@@ -35,5 +37,16 @@
 }
 
 .card--city {
-  line-height: 0.4;
+  margin: 8px 0;
+}
+
+@media (max-width: 810px) {
+  .card-row {
+    margin-top: 0;
+    gap: 10px;
+  }
+
+  .card:first-of-type {
+    margin-top: 20px;
+  }
 }

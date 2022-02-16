@@ -47,14 +47,11 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="headers">
         <h1>Compare your Air</h1>
-        <h2>
-          Compare the air quality between cities in the UK.
-          <br />
-          Select cities to compare using the search box below.
-        </h2>
+        <h2>Compare the air quality between cities in the UK.</h2>
+        <h2>Select cities to compare using the search tool below.</h2>
       </div>
 
       {loading ? (
@@ -68,7 +65,6 @@ const App = () => {
           />
         </div>
       )}
-      <br />
 
       <div className="card-row">
         {selectedCities.map((city, i) => (
