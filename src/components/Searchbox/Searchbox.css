@@ -1,16 +1,16 @@
 .searchbox {
+  background: url("../../svg/search.svg") no-repeat scroll 7px 7px, white;
   border-color: #cccccc;
-  border-style: solid;
   border-radius: 8px;
+  border-style: solid;
   border-width: 2px;
   box-sizing: border-box;
-  background: url("../../svg/search.svg") no-repeat scroll 7px 7px, white;
+  font-size: 15px;
+  max-width: 400px;
   padding: 9px;
   padding-left: 40px;
-  font-size: 15px;
-  width: 100%;
-  max-width: 400px;
   position: relative;
+  width: 100%;
   z-index: 1;
 }
 
@@ -20,25 +20,24 @@
 
 .searchbox--suggestion-list {
   background-color: white;
-  list-style: none;
-  width: 100%;
-  max-width: 400px;
-  max-height: 210px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  text-align: left;
-  position: relative;
-  bottom: 22px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  bottom: 22px;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 210px;
+  max-width: 400px;
   overflow: scroll;
+  padding-left: 0;
+  position: relative;
+  text-align: left;
+  width: 100%;
 }
 
 .searchbox--suggestion {
-  padding: 10px 15px;
   cursor: pointer;
-  font-family: "Open Sans", sans-serif;
+  padding: 10px 15px;
 }
 
 .searchbox--suggestion:first-of-type {

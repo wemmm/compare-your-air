@@ -1,6 +1,6 @@
 {
   "short_name": "Compare your Air",
-  "name": "Air quality coparison app",
+  "name": "Air quality comparison app",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
