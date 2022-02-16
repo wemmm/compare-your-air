@@ -5,8 +5,10 @@ import { ReactComponent as CloseIcon } from "../../svg/close.svg";
 const Card = ({ cityData, onClose }) => {
   return (
     <div className="card">
-      <div className="card--close-button">
-        <CloseIcon onClick={onClose} />
+      <div className="card--close-button-container">
+        <button className="card--close-button" onClick={onClose}>
+          <CloseIcon />
+        </button>
       </div>
       <p className="card--updated-time">
         UPDATED{" "}

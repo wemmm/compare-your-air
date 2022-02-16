@@ -3,7 +3,6 @@ import Card from "../components/Card/Card";
 import Searchbox from "../components/Searchbox/Searchbox";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import { useEffect, useState } from "react";
-import { ReactComponent as SpinnerIcon } from "../svg/spinner.svg";
 
 const App = () => {
   const [selectedCities, setSelectedCities] = useState([]);

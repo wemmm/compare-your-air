@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<form>
+  <input
+    className="searchbox"
+    onChange={[Function]}
+    placeholder="Placeholder"
+    type="text"
+  />
+</form>
+`;

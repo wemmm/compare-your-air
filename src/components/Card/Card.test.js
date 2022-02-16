@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import Card from "./Card";
 
 const mockCityData = {
@@ -13,10 +14,29 @@ const mockCityData = {
   ],
 };
 
-test("renders data passed in as prop", () => {
-  render(<Card cityData={mockCityData} />);
+test("renders", () => {
+  const component = renderer.create(
+    <Card cityData={mockCityData} onClose={jest.fn} />
+  );
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("displays data passed in as prop", () => {
+  render(<Card cityData={mockCityData} onClose={jest.fn} />);
 
   expect(screen.getByText("Salford Eccles")).toBeInTheDocument();
   expect(screen.getByText("in Manchester, United Kingdom")).toBeInTheDocument();
   expect(screen.getByText("Values: PM10: 13")).toBeInTheDocument();
+});
+
+test("calls onClose function when close button is clicked", () => {
+  const mockFunction = jest.fn();
+
+  render(<Card cityData={mockCityData} onClose={mockFunction} />);
+
+  fireEvent.click(screen.getByRole("button"));
+
+  expect(mockFunction).toHaveBeenCalledTimes(1);
 });

@@ -12,7 +12,7 @@
   margin: 8px 0;
 }
 
-.card--close-button {
+.card--close-button-container {
   display: flex;
   justify-content: flex-end;
   left: 20px;
@@ -21,11 +21,14 @@
   -webkit-justify-content: flex-end;
 }
 
-.card--close-button svg {
+.card--close-button {
+  border: none;
+  background-color: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
-.card--close-button svg:hover path {
+.card--close-button:hover svg path {
   fill: #4475af;
 }
 
