@@ -16,9 +16,7 @@ const mockCityData = {
 test("renders data passed in as prop", () => {
   render(<Card cityData={mockCityData} />);
 
-  expect(screen.getByText("Manchester")).toBeInTheDocument();
-  expect(
-    screen.getByText("in Salford Eccles, United Kingdom")
-  ).toBeInTheDocument();
-  expect(screen.getByText("PM10")).toBeInTheDocument();
+  expect(screen.getByText("Salford Eccles")).toBeInTheDocument();
+  expect(screen.getByText("in Manchester, United Kingdom")).toBeInTheDocument();
+  expect(screen.getByText("Values: PM10: 13")).toBeInTheDocument();
 });

@@ -1,8 +1,8 @@
 import "./App.css";
-import Card from "./components/Card/Card";
-import Searchbox from "./components/Searchbox/Searchbox";
+import Card from "../components/Card/Card";
+import Searchbox from "../components/Searchbox/Searchbox";
 import { useEffect, useState } from "react";
-import { ReactComponent as SpinnerIcon } from "./svg/spinner.svg";
+import { ReactComponent as SpinnerIcon } from "../svg/spinner.svg";
 
 const App = () => {
   const [selectedCities, setSelectedCities] = useState([]);
@@ -24,8 +24,10 @@ const App = () => {
   }, []);
 
   const fetchAirQuality = (cityName) => {
+    const maximumCards = 2;
+
     if (
-      selectedCities.length < 2 &&
+      selectedCities.length < maximumCards &&
       !selectedCities.some((selectedCity) => selectedCity.city === cityName)
     ) {
       fetch(
@@ -66,7 +68,7 @@ const App = () => {
         </div>
       )}
 
-      <div className="card-row">
+      <div className="card--row">
         {selectedCities.map((city, i) => (
           <Card
             cityData={city}
