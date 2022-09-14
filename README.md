@@ -19,13 +19,13 @@ I then rendered my Searchbox component in the main App and wrote a function to f
 
 I passed the individual city data into my basic Card component and started to flesh out the info that was displayed, added the close button functionality and then styled and tested the component.
 
-Once tests were all passing and the styling looked correct, I added a loading spinner to be displayed while the initial fetching of data was occurring - it's fairly quick but helpful for slow connections!
+Once tests were all passing and the styling looked correct, I added a loading spinner to be displayed while the initial fetching of data was occurring - it's fairly quick but helpful for slow connections.
 
 I used media queries to tweak the CSS for the narrower (mobile) view in the design document.
 
 As I already had unit tests for the smaller components, I wanted to write some integration tests for the main app. This was more complicated as I needed to mock the window's `fetch` method with jest and set/get from session storage.
 
-After some more refactoring & extra tests, I decided to call it a day! I've detailed some issues and changes I might have made with more time in the "Potential Improvements" section of this readme :)
+After some more refactoring & extra tests, I decided to call it a day. I've detailed some issues and changes I might have made with more time in the "Potential Improvements" section of this readme :)
 
 ## Test coverage
 
@@ -54,7 +54,7 @@ All files             |     100 |      100 |     100 |     100 |
 
 - I've not had time to implement error handling, which I would definitely want in production code! I would check if API response statuses were ok, and if not, I would throw an error and display a flash message to the user.
 - The card components don't have any sort of loading state. With more time, I would have liked to have a spinner display to make it clear to the user that the city data is in the process of being fetched.
-- Relating to the aforementioned issue of not knowing if the number of cards was supposed to be limited: I wasn't too sure what the correct behaviour for the input should be when the maximum number of cards is reached! I haven't had time to implement it but the input could possibly be disabled, or a message shown to the user.
+- Relating to the aforementioned issue of not knowing if the number of cards was supposed to be limited: I wasn't too sure what the correct behaviour for the input should be when the maximum number of cards is reached. I haven't had time to implement it but the input could possibly be disabled, or a message shown to the user.
 - I haven't added SASS to the project as it felt like overkill for a small codebase, but if this were larger it would have been nice to use SASS for nested selectors and setting/importing colour & sizing variables for consistency.
 - I've visually checked the app on Safari, Firefox and Chrome - in a perfect world I would have tried this in more obscure browsers. I've also checked the layout on Chrome's preset phone model screen sizes, and checked the app is useable on throttled connections.
 
